@@ -20,21 +20,22 @@ def cycle_length(value: int) -> int:
     return len(results)
 
 
-results = []
-values = input("Insert pair of numbers: ")
+if __name__ == "__main__":
+    results = []
+    values = input("Insert pair of numbers: ")
 
-data = values.split(" ")
-data = [int(n) for n in data]
+    data = values.split(" ")
+    data = [int(n) for n in data]
 
-for n in data:
-    if n < 0 or n > 10_000:
-        raise ValueError("min: 1 - max: 10.000")
+    for n in data:
+        if n < 0 or n > 10_000:
+            raise ValueError("min: 1 - max: 10.000")
 
-for i in range(data[0], data[1]):
-    results.append(cycle_length(i))
+    for i in range(data[0], data[1]):
+        results.append(cycle_length(i))
 
-results.sort(reverse=True)
+    results.sort(reverse=True)
 
-print(f"{data[0]} {data[1]} {results[0]}")
+    print(f"{data[0]} {data[1]} {results[0]}")
 
-sys.exit(0)
+    sys.exit(0)
