@@ -1,3 +1,6 @@
+import sys
+
+
 def cycle_length(value: int) -> int:
     counter = 0
     results: list[int] = [value]
@@ -34,3 +37,5 @@ if __name__ == "__main__":
     results.sort(reverse=True)
 
     print(f"{data[0]} {data[1]} {results[0]}")
+
+    sys.exit(0)
