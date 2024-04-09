@@ -1,12 +1,9 @@
-def cycle_length(value: int, limit: int) -> list[int]:
+def cycle_length(value: int) -> int:
     counter = 0
     results: list[int] = [value]
 
     for n in results:
         if counter != 0 and n == 1:
-            break
-
-        if n >= limit:
             break
 
         if n % 2 != 0:
@@ -17,11 +14,11 @@ def cycle_length(value: int, limit: int) -> list[int]:
         results.append(int(n))
         counter += 1
 
-    results.insert(1, limit)
-    return results
+    return len(results)
 
 
 if __name__ == "__main__":
+    results = []
     values = input("Insert pair of numbers: ")
 
     data = values.split(" ")
@@ -31,8 +28,9 @@ if __name__ == "__main__":
         if n < 0 or n > 10_000:
             raise ValueError("min: 1 - max: 10.000")
 
-    results = cycle_length(data[0], data[1])
+    for i in range(data[0], data[1]):
+        results.append(cycle_length(i))
 
-    response = len(results[2:])
+    results.sort(reverse=True)
 
-    print(f"{data[0]} {data[1]} {response}")
+    print(f"{data[0]} {data[1]} {results[0]}")
